@@ -8,19 +8,17 @@ QUESTIONS ? ---------------
 */
 
 
-/* FONT TO USE (optional) Lato */
 
-#main {
-    transition: margin-left .5s;
-    padding: 16px;
-    z-index:90;
+@font-face {
+	font-family: 'deathnote';
+	src: url('../fonts/DEATHNOTEFont.ttf');
 }
 
 .sideBarNav {
     height: 100%;
     width: 0;
     position: fixed;
-    z-index: 1;
+    z-index: 50;
     top: 0;
     right: 0;
     background-color: #111;
@@ -32,13 +30,19 @@ QUESTIONS ? ---------------
 .sideBarNav a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 35px;
     color: #818181;
     display: block;
     transition: 0.3s;
+    font-family:'deathnote';
 }
 
-.sideBarNav a:hover, .offcanvas a:focus{
+.sideBarNav > span {
+    color:#c0c0c0;
+    cursor:pointer;
+}
+
+.sideBarNav a:hover, .offcanvas a:focus, .sideBarNav>span:hover{
     color: #f1f1f1;
 }
 

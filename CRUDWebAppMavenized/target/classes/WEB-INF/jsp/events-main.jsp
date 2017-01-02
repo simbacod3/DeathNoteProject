@@ -14,7 +14,7 @@
 		<spring:url value="/resources/js/modal-deathnote.js" var="pluginModalJS" />
 		<spring:url value="/resources/css/menu-deathnote.css" var="pluginMenuCSS" />
 		<spring:url value="/resources/js/menu-deathnote.js" var="pluginMenuJS" />
-		
+		<spring:url value="/resources/img/ryuk.png" var="ryukFlying" />
 		
 		<!-- METAs files -->
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
@@ -28,15 +28,24 @@
 		<!-- JS references with JSP variables -->
 		<script src="${pluginModalJS}" charset="utf-8"></script>
 		<script src="${pluginMenuJS}" charset="utf-8"></script>
+		<script src='${jqueryMouseWheel}' type='text/javascript' ></script>
 		
 	</head>
 	<body>
+	
+		<!-- Background twinkilng stars effect -->
+		<div class="stars"></div>
+		<div class="twinkling"></div>
+		<!-- End Background twinkling stars effect -->
+		
 		<div id="main">	
+		
+		
 		<!-- Navigation BAR -->
-		   <span style="position:absolute; right: 10px; top: 10px;font-size:30px;cursor:pointer" onclick="openMenuNavigation()">&#9776;</span>
+		   <span style="position:fixed; right: 10px; top: 10px;font-size:30px;cursor:pointer; color:white; z-index:4;" onclick="openMenuNavigation()">&#9776;</span>
 		    <div id="mySideBarnav" class="sideBarNav">
-		      <a href="javascript:void(0)" class="closebtn" onclick="closeMenuNavigation()">&times;</a>
-		      <a href="#">Admin</a>
+		      <span href="javascript:void(0)" class="closebtn" onclick="closeMenuNavigation()">&times;</span>
+		      <a href="javascript:void(0)" onclick="splashRyukFlyingForAdmin()">Admin</a>
 		      <a href="#">Check a date</a>
 		      <a href="#">About us</a>
 		      <a href="#">Report bug</a>
@@ -64,7 +73,18 @@
 				  </div>
 				</div>
 			</c:forEach>
-		
+			
+			<div id="admin-ryuk-connection">
+				<span onclick="closeRyukConnect()">&times;</span>
+				<img class="mrRyuk"src="${ryukFlying}"></img>
+				<form>
+					<span>Take possession <br> of </br> the Death Note.</span>
+					<label>Username</label>
+					<input type="text"/>
+					<label>Password</label>
+					<input type="text"/>
+				</form>
+			</div>
 		</div>
 	</body>
 </html>

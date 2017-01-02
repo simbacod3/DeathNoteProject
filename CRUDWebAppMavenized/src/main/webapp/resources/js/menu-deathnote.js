@@ -43,5 +43,19 @@ function openMenuNavigation() {
 function closeMenuNavigation() {
     document.getElementById("mySideBarnav").style.width = "0";
     document.getElementById("main").style.marginLeft= "0";
-    document.body.style.backgroundColor = "white";
+}
+
+
+function splashRyukFlyingForAdmin() {
+	var ryukOpenModal = document.getElementById('admin-ryuk-connection');
+	
+	ryukOpenModal.style.display='block';
+	
+	closeMenuNavigation();
+}
+
+function closeRyukConnect() {
+	var ryukOpenModal = document.getElementById('admin-ryuk-connection');
+	ryukOpenModal.style.display='none';
+	
 }
