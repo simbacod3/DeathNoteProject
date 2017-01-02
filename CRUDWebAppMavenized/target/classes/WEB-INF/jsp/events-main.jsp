@@ -74,6 +74,7 @@
 				</div>
 			</c:forEach>
 			
+			<!-- Admin connection part -->
 			<div id="admin-ryuk-connection">
 				<span onclick="closeRyukConnect()">&times;</span>
 				<img class="mrRyuk"src="${ryukFlying}"></img>
@@ -85,6 +86,7 @@
 					<input type="text"/>
 				</form>
 			</div>
+			<!-- END ADMIN -->
 		</div>
 	</body>
 </html>
