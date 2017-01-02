@@ -78,12 +78,14 @@
 			<div id="admin-ryuk-connection">
 				<span onclick="closeRyukConnect()">&times;</span>
 				<img class="mrRyuk"src="${ryukFlying}"></img>
-				<form>
+				<form> <!-- TODO:// Work on sending message to connect. -->
 					<span>Take possession <br> of </br> the Death Note.</span>
 					<label>Username</label>
 					<input type="text"/>
 					<label>Password</label>
 					<input type="text"/>
+					<button action="submit">Connection</button>
+					<p>Don't have any Death Note to connect? <a href="register">Register here</a></p>
 				</form>
 			</div>
 			<!-- END ADMIN -->

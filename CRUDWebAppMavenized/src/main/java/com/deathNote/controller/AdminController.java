@@ -20,4 +20,9 @@ public class AdminController {
 		
 		return a.getFirstname() + " "+ a.getLastname(); 
 	}
+	
+	@RequestMapping("register")
+	public String launchRegisterOnCall() {
+		return "registerAdmin";
+	}
 }

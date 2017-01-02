@@ -136,3 +136,16 @@ button {
     border-bottom: 3px solid white;
     color:white;
 }
+
+#admin-ryuk-connection > form > p {
+	font-family:'Lato';
+	color: #b3b3b3;
+}
+
+#admin-ryuk-connection > form > p > a {
+	color:white;
+}
+
+#admin-ryuk-connection > form > p > a:hover {
+	color:#d2ffff;
+}
