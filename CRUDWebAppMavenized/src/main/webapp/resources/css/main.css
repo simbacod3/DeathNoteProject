@@ -149,3 +149,16 @@ button {
 #admin-ryuk-connection > form > p > a:hover {
 	color:#d2ffff;
 }
+
+/*
+	TIME LINE PART
+*/
+#timeline-deathnote {
+	position: absolute;
+	top: 20%;
+	left:2%;
+}
+
+.svg-node{
+	cursor: pointer;
+}

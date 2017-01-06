@@ -13,6 +13,7 @@
 		<spring:url value="/resources/css/modal-deathnote.css" var="pluginModalCSS" />
 		<spring:url value="/resources/js/modal-deathnote.js" var="pluginModalJS" />
 		<spring:url value="/resources/css/menu-deathnote.css" var="pluginMenuCSS" />
+		<spring:url value="/resources/js/timeline-svg-creator.js" var="pluginTimelineSVGJS" />
 		<spring:url value="/resources/js/menu-deathnote.js" var="pluginMenuJS" />
 		<spring:url value="/resources/img/ryuk.png" var="ryukFlying" />
 		
@@ -29,6 +30,7 @@
 		<script src="${pluginModalJS}" charset="utf-8"></script>
 		<script src="${pluginMenuJS}" charset="utf-8"></script>
 		<script src='${jqueryMouseWheel}' type='text/javascript' ></script>
+		<script src='${pluginTimelineSVGJS}' type='text/javascript' ></script>
 		
 	</head>
 	<body>
@@ -59,9 +61,15 @@
 		
 			<!-- Sample of table splash -->
 			<c:forEach items="${eventList}" var="event">
-				<button type="button" name="button" nodeModal-identifier="${event.id}" onclick="openModalDialog(event);">
-	  				Click here to open modal number: ${event.id}
-				</button>
+				
+				
+				<script type="text/javascript">
+					var node = new NodeObject( { "id":${event.id},
+												 "description":"${event.description}",
+												 "date":"${event.date}"
+						});
+					addToJavaList(node);
+				</script>
 				
 				<!-- The Modal Global-->
 				<div class="modal" id="identifier-${event.id}" nodeModal-identifier="1">
@@ -74,6 +82,14 @@
 				</div>
 			</c:forEach>
 			
+			<!-- PART WHERE THE TIMELINE WILL BE DRAWN. -->
+			<div id="timeline-deathnote"></div>
+				
+				<script type="text/javascript">
+					drawTimeline();
+					
+				</script>
+			
 			<!-- Admin connection part -->
 			<div id="admin-ryuk-connection">
 				<span onclick="closeRyukConnect()">&times;</span>
@@ -81,9 +97,10 @@
 				<form> <!-- TODO:// Work on sending message to connect. -->
 					<span>Take possession <br> of </br> the Death Note.</span>
 					<label>Username</label>
-					<input type="text"/>
+					<input type="text" placeholder="User name"/>
 					<label>Password</label>
-					<input type="text"/>
+					<input type="text" placeholder="Password"/>
+					<br>
 					<button action="submit">Connection</button>
 					<p>Don't have any Death Note to connect? <a href="register">Register here</a></p>
 				</form>

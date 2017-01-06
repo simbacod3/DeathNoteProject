@@ -1,0 +1,52 @@
+/*
+ CSS file for the register platform view.
+*/
+
+body, html {
+	width:100%;
+	height:100%;
+	background: black url('../img/lightapple.jpg');
+	background-position-x: -400%;
+	color:white;
+}
+
+form {
+	position: absolute;
+	top: 17%;
+	right:15%;
+}
+
+input {
+	border:none;
+    background-color:transparent;
+    border-bottom: 3px solid #555;
+	color:#b3b3b3;
+	font-size:25px;
+}
+
+input:hover {
+	border:none;
+    border-bottom: 3px solid white;
+    color:white;
+}
+
+form>span {
+	font-family:'deathnote';
+	font-size:55px;
+	padding-left:40px;
+	
+}
+
+@font-face {
+	font-family: 'deathnote';
+	src: url('../fonts/DEATHNOTEFont.ttf');
+}
+
+.returnToMenu {
+	position: absolute;
+	top:10%;
+	right:10%;
+	font-size:30px;
+	text-decoration:none;
+	color:white;	
+}

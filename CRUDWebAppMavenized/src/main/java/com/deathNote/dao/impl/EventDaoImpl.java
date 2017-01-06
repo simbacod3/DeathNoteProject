@@ -40,7 +40,7 @@ public class EventDaoImpl implements EventDao {
 	@Override
 	public java.util.List<Event> getAllEvents() {
 		
-		return session.getCurrentSession().createSQLQuery("select * from event").addEntity(Event.class).list();
+		return session.getCurrentSession().createSQLQuery("SELECT * FROM event ORDER BY date ASC").addEntity(Event.class).list();
 	}
 
 }

@@ -36,7 +36,10 @@ function openModalDialog(event) {
   var targetElement = event.target,
       targetElementIdentifier = targetElement.getAttribute("nodeModal-identifier"),
       modal = document.getElementById('identifier-' + targetElementIdentifier);
-
+  if(modal == null || targetElement == null || targetElementIdentifier == null) {
+	  alert("Error launch: the element selected seemed to be null.");
+	  return;
+  }
   modal.style.display ='block';
 
   document.getElementById('CloseIdentifier-' + targetElementIdentifier).onclick = function(event) {
