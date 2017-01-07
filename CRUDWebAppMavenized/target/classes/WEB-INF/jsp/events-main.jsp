@@ -114,9 +114,9 @@
 				<form> <!-- TODO:// Work on sending message to connect. -->
 					<span>Take possession <br> of </br> the Death Note.</span>
 					<label>Username</label>
-					<input type="text" placeholder="User name"/>
+					<input type="text" placeholder="User name" required="required"/>
 					<label>Password</label>
-					<input type="text" placeholder="Password"/>
+					<input type="text" placeholder="Password" required="required"/>
 					<br>
 					<button action="submit">Connection</button>
 					<p>Don't have any Death Note to connect? <a href="register">Register here</a></p>
