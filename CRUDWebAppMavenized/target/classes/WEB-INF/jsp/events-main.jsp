@@ -64,9 +64,23 @@
 				
 				
 				<script type="text/javascript">
+					var pOv = "${event.pointOfView}";
+
+					switch(pOv) {
+					case"true":
+						pOv = "police";
+						break;
+					case "false":
+						pOv = "kira";
+						break;
+					default:
+						pOv = null;
+					}
+					
 					var node = new NodeObject( { "id":${event.id},
 												 "description":"${event.description}",
-												 "date":"${event.date}"
+												 "date":"${event.date}",
+												 "pointOfView": pOv
 						});
 					addToJavaList(node);
 				</script>
@@ -77,7 +91,9 @@
 				  <div class="modal-content">
 				    <span class="modal-closer" id="CloseIdentifier-${event.id}" nodeModal-identifier="${event.id}">&times;</span>
 				    <!-- Add content, arbitrary -->
+				    <h1>${event.date}</h1>
 				    <p>${event.description}</p>
+				    
 				  </div>
 				</div>
 			</c:forEach>

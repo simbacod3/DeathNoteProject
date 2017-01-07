@@ -19,7 +19,7 @@
 	</head>
 	<body>
 	<a class="returnToMenu" href="loadEvents">&times;</a>
-		<form>
+		<form action="registerAndSend" >
 			<span>Registration</span></br></br>
 			<label>First name</label> </br>
 			<input path="firstname" /> </br></br>

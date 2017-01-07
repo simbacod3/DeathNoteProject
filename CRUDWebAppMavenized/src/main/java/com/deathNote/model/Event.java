@@ -23,18 +23,20 @@ public class Event {
 	@Column
 	private String location;
 	@Column
-	private boolean pointOfView;
+	private Boolean pointOfView;
 	@Column
 	private int idkiller;
 	@Column
 	private int idpicture;
+	@Column
+	private int idepisode;
 	
 	public Event() {
 		
 	}
 
-	public Event(int id, String description, Date date, boolean murder, String location, boolean pointOfView,
-			int idkiller, int idpicture) {
+	public Event(int id, String description, Date date, boolean murder, String location, Boolean pointOfView,
+			int idkiller, int idpicture, int idepisode) {
 		super();
 		this.id = id;
 		this.description = description;
@@ -44,6 +46,7 @@ public class Event {
 		this.pointOfView = pointOfView;
 		this.idkiller = idkiller;
 		this.idpicture = idpicture;
+		this.idepisode = idepisode;
 	}
 
 	public int getId() {
@@ -86,11 +89,11 @@ public class Event {
 		this.location = location;
 	}
 
-	public boolean isPointOfView() {
+	public Boolean getPointOfView() {
 		return pointOfView;
 	}
 
-	public void setPointOfView(boolean pointOfView) {
+	public void setPointOfView(Boolean pointOfView) {
 		this.pointOfView = pointOfView;
 	}
 
@@ -108,5 +111,13 @@ public class Event {
 
 	public void setIdpicture(int idpicture) {
 		this.idpicture = idpicture;
+	}
+	
+	public int getIdepisode() {
+		return idepisode;
+	}
+
+	public void setIdepisode(int idepisode) {
+		this.idepisode = idepisode;
 	}
 }
