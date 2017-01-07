@@ -1,11 +1,13 @@
 package com.deathNote.dao.impl;
 
+
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.deathNote.dao.AdminDao;
 import com.deathNote.model.Admin;
+import com.deathNote.model.Event;
 
 @Repository
 public class AdminDaoImpl implements AdminDao {
@@ -31,4 +33,10 @@ public class AdminDaoImpl implements AdminDao {
 	public Admin getAdminById(int id) {
 		return (Admin)session.getCurrentSession().get(Admin.class,id);
 	}
+
+	@Override
+	public java.util.List<Admin> getAllAdmin() {
+		return  session.getCurrentSession().createSQLQuery("SELECT * FROM admin").addEntity(Admin.class).list();
+	}
+	
 }

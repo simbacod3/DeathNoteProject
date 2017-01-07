@@ -2,6 +2,8 @@ body,html {
 	background-color: black;
 }
 
+
+
 table, td, tr {
 	border:1px solid red;
 }
@@ -11,6 +13,23 @@ table, td, tr {
     padding: 16px;
     z-index:3;
 }
+
+.titleDeathNote {
+	position:fixed;
+	left:36%;
+    color: #b3b3b3;
+    font-family: 'deathnote';
+    text-align: center;
+    font-size: 45px;
+	transition: .4s;
+	text-decoration:none;
+}
+
+.titleDeathNote:hover {
+	color: white;
+	transition: .4s;
+	cursor:pointer;
+	}
 
 button {
 	z-index:78;
@@ -157,6 +176,19 @@ button {
 	position: absolute;
 	top: 20%;
 	left:2%;
+	animation:sizerLeftToRight;
+	animation-duration:2s;
+}
+
+
+
+@keyframes sizerLeftToRight {
+	0% {
+		opacity:0;
+	}
+	100% {
+		opacity:1;
+	}
 }
 
 .svg-node{

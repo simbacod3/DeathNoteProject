@@ -1,0 +1,45 @@
+body, html {
+	background-color:black;
+	width:100vw;
+	height:100vh;
+	overflow:hidden;
+}
+
+h1 {
+	font-family:'deathnote';
+	font-size:55px;
+	padding-left:40px;
+	color: white;
+    z-index: 98;
+    position: absolute;
+    bottom: 10%;
+    left: 35%;
+}
+
+.successimg {
+	position: absolute;
+    top: 2%;
+    left: 18%;
+    animation: opac;
+    animation-duration: 1s;
+}
+
+p {
+	font-family: 'deathnote';
+	color:white;
+    position: absolute;
+    font-size: 28px;
+    bottom: 2%;
+    z-index: 98;
+    left: 25%;
+}
+
+@font-face {
+	font-family: 'deathnote';
+	src: url('../fonts/DEATHNOTEFont.ttf');
+}
+
+@keyframes opac {
+	from {opacity:0;}
+	to {opacity:1;}
+}

@@ -1,5 +1,7 @@
 package com.deathNote.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -32,6 +34,11 @@ public class AdminServiceImpl implements AdminService{
 	@Transactional
 	public Admin getAdminById(int id) {
 		return adminDao.getAdminById(id);
+	}
+
+	@Transactional
+	public List<Admin> getAllAdmin() {
+		return adminDao.getAllAdmin();
 	}
 
 }

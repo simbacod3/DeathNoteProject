@@ -50,3 +50,10 @@ form>span {
 	text-decoration:none;
 	color:white;	
 }
+
+/*
+SUCCESS
+*/
+.success {
+	font-family:'deathnote';
+}

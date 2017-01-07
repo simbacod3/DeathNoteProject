@@ -1,12 +1,20 @@
 package com.deathNote.model;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Event {
@@ -26,17 +34,21 @@ public class Event {
 	private Boolean pointOfView;
 	@Column
 	private int idkiller;
-	@Column
-	private int idpicture;
-	@Column
-	private int idepisode;
+	@OneToOne
+	private Picture picture;
+	@OneToOne
+	private Episode episode;
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private List<Person> persons = new ArrayList<Person>();
 	
+
 	public Event() {
 		
 	}
 
+
 	public Event(int id, String description, Date date, boolean murder, String location, Boolean pointOfView,
-			int idkiller, int idpicture, int idepisode) {
+			int idkiller, Picture picture, Episode episode, List<Person> persons) {
 		super();
 		this.id = id;
 		this.description = description;
@@ -45,8 +57,17 @@ public class Event {
 		this.location = location;
 		this.pointOfView = pointOfView;
 		this.idkiller = idkiller;
-		this.idpicture = idpicture;
-		this.idepisode = idepisode;
+		this.picture = picture;
+		this.episode = episode;
+		this.persons = persons;
+	}
+
+	public List<Person> getPersons() {
+		return persons;
+	}
+
+	public void setPersons(List<Person> persons) {
+		this.persons = persons;
 	}
 
 	public int getId() {
@@ -104,20 +125,17 @@ public class Event {
 	public void setIdkiller(int idkiller) {
 		this.idkiller = idkiller;
 	}
-
-	public int getIdpicture() {
-		return idpicture;
+	public Picture getPicture() {
+		return picture;
+	}
+	public void setPicture(Picture picture) {
+		this.picture = picture;
+	}
+	public Episode getEpisode() {
+		return episode;
+	}
+	public void setEpisode(Episode episode) {
+		this.episode = episode;
 	}
 
-	public void setIdpicture(int idpicture) {
-		this.idpicture = idpicture;
-	}
-	
-	public int getIdepisode() {
-		return idepisode;
-	}
-
-	public void setIdepisode(int idepisode) {
-		this.idepisode = idepisode;
-	}
 }

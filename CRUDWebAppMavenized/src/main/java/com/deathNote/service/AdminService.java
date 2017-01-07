@@ -7,4 +7,5 @@ public interface AdminService {
 	public void edit(Admin admin);
 	public void delete(Admin admin);
 	public Admin getAdminById(int id);
+	public java.util.List<Admin> getAllAdmin();
 }

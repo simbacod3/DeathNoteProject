@@ -34,14 +34,14 @@
 		
 	</head>
 	<body>
-	
+		
 		<!-- Background twinkilng stars effect -->
 		<div class="stars"></div>
 		<div class="twinkling"></div>
 		<!-- End Background twinkling stars effect -->
 		
 		<div id="main">	
-		
+		<a href="loadEvents" class="titleDeathNote">Death Note Time Line</a>
 		
 		<!-- Navigation BAR -->
 		   <span style="position:fixed; right: 10px; top: 10px;font-size:30px;cursor:pointer; color:white; z-index:4;" onclick="openMenuNavigation()">&#9776;</span>
@@ -93,7 +93,8 @@
 				    <!-- Add content, arbitrary -->
 				    <h1>${event.date}</h1>
 				    <p>${event.description}</p>
-				    
+				    <p>Number episode: ${event.episode.number} </p>
+					<iframe width="560" height="315" src="${event.episode.link}" frameborder="0" allowfullscreen></iframe>
 				  </div>
 				</div>
 			</c:forEach>

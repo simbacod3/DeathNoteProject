@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
  <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+ <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
  <%@ include file="/WEB-INF/jsp/includes.jsp"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -18,20 +19,25 @@
 		
 	</head>
 	<body>
+
 	<a class="returnToMenu" href="loadEvents">&times;</a>
-		<form action="registerAndSend" >
+		<form:form action="registerAndSend" commandName="admin" method="post" >
 			<span>Registration</span></br></br>
+			<label style="color:red;">${errorMsg}</label></br></br>
 			<label>First name</label> </br>
-			<input path="firstname" /> </br></br>
+			<form:input path="firstname" required="required"/> </br></br>
 			<label>Last name</label></br>
-			<input path="lastname" /> </br></br>
-			<label>User name</label></br>
-			<input path="username" /> </br></br>
+			<form:input path="lastname" required="required"/> </br></br>
 			<label>Age</label></br>
-			<input path="age" /></br></br>
+			<form:input path="age" required="required"/></br></br>
+			</hr>
+			<label>User name</label></br>
+			<form:input path="username" required="required"/> </br></br>
+			<label>Password</label></br>
+			<form:input path="password" required="required"/></br></br>
 			<label>Description (optional)</label></br>
-			<input path="description" /></br></br>
+			<form:input path="description" /></br></br>
 			<button>Register </button>
-		</form>
+		</form:form>
 	</body>
 </html>

@@ -26,13 +26,27 @@ public class Admin {
 	private String description;
 	@Column
 	private int idpicture;
+	@Column
+	private String password;
 	
+
+
 	public Admin() {
 		
 	}
-	
-	public Admin(int id, String firstname, String lastname, String username, int age, String description,
-			int idpicture) {
+	public Admin( String firstname, String lastname, String username, int age, String description, int idpicture,
+			String password) {
+		super();
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.username = username;
+		this.age = age;
+		this.description = description;
+		this.idpicture = idpicture;
+		this.password = password;
+	}
+	public Admin(int id, String firstname, String lastname, String username, int age, String description, int idpicture,
+			String password) {
 		super();
 		this.id = id;
 		this.firstname = firstname;
@@ -41,8 +55,16 @@ public class Admin {
 		this.age = age;
 		this.description = description;
 		this.idpicture = idpicture;
+		this.password = password;
 	}
 
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	} 
 	public int getId() {
 		return id;
 	}
