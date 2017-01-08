@@ -228,7 +228,7 @@ span.pov-title {
 }
 .event-pov input[type=radio]:checked + label::before {
 	content: '';
-	background-image: url("../../img/checked.png");
+	background-image: url("../img/checked.png");
 	background-position: 0px 0px;
 	background-size: 180px 70px;
     background-repeat: no-repeat;
@@ -344,6 +344,49 @@ input[type=submit]:active {
 	}
 	100%{
 	right:-20%;
+	}
+}
+
+#wrap_database {
+	font-family:'deathnote';
+	color:white;
+	display:none;
+    position: absolute;
+    top: 8%;
+    left: 25%;
+    animation:opacityEffect;
+    animation-duration:1s;
+}
+
+#wrap_mail {
+	display:none;
+    position: absolute;
+    top: 8%;
+    left: 25%;
+    animation:opacityEffect;
+    animation-duration:1s;
+}
+
+#wrap_user {
+	display:none;
+    position: absolute;
+    top: 8%;
+    left: 25%;
+    animation:opacityEffect;
+    animation-duration:1s;
+}
+
+#wrap_forms {
+	animation:opacityEffect;
+    animation-duration:1s;
+}
+
+@keyframes opacityEffect {
+	0%{
+	opacity:0;
+	}
+	100% {
+	opacity:1;
 	}
 }
 

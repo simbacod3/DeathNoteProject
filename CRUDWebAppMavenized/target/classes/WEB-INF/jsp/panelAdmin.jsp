@@ -37,7 +37,7 @@
 			    <div id="mySideBarnav" class="sideStickyBarNav">
 			      <span href="javascript:void(0)" class="closebtnSticky" onclick="openStickyMenuNavigation(event);">&#9654;</span>
 			      <a href="javascript:void(0)" onclick="openWrapper(event);"><img src="${formsPNG}" menu-value="wrap_forms"/></a>
-			      <a href="../loadEvents"><img src="${timelinePNG}"/></a>
+			      <a href="loadEvents"><img src="${timelinePNG}"/></a>
 			      <a href="javascript:void(0)" onclick="openWrapper(event);"><img src="${databasePNG}" menu-value="wrap_database"/></a>
 			      <br>
 			      </br>
@@ -123,6 +123,7 @@
 		</script>
 			</div>
 			<div id="wrap_database">
+			<h1>Events - database</h1>
 			<div class="datagrid">
 					<table>
 						<thead><tr><th>id</th><th>title</th><th>date</th><th>description</th></tr></thead>
@@ -139,6 +140,9 @@
 				</tbody>
 				</table>
 				</div>
+				<br>
+				</br>
+				<h1>Episodes - database</h1>
 				<div class="datagrid">
 					<table>
 						<thead><tr><th>id</th><th>number</th><th>season</th><th>synopsis</th></tr></thead>
