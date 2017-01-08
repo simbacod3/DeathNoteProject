@@ -1,5 +1,7 @@
 package com.deathNote.controller;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,7 +25,7 @@ public class EpisodeController {
 	@RequestMapping("/episode1")
 	@ResponseBody
 	public String getEpisode1() {
-		Episode e = episodeService.getEpisodeById(1);
+		Episode e = episodeService.getEpisodeById(6);
 		
 		return e.getLink();
 	}
@@ -33,10 +35,12 @@ public class EpisodeController {
 	 * @return
 	 */
 	@RequestMapping(value="episodes", method=RequestMethod.GET)
-	public ModelAndView getAllEpisodes() {
-		ModelAndView modelView = new ModelAndView();
-		modelView.addObject("episodeList", episodeService.getAllEpisodes());
-		return modelView;
+	public String getAllEpisodes(Map<String, Object> map) {
+		Episode ep = new Episode();
+		map.put("episode", ep);
+		map.put("episodeList", episodeService.getAllEpisodes());
+		
+		return "episodesPanel";
 	}
 	
 }

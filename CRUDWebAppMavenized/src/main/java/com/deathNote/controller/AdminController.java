@@ -88,6 +88,7 @@ public class AdminController {
 	// END ADMIN PART FOR REGISTRATION
 	
 	// LOGIN PART
+
 	
 	@RequestMapping(value="adminPanel", method=RequestMethod.GET)
 	public ModelAndView adminPanelAccess() {

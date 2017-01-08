@@ -16,6 +16,8 @@
 		<spring:url value="/resources/js/timeline-svg-creator.js" var="pluginTimelineSVGJS" />
 		<spring:url value="/resources/js/menu-deathnote.js" var="pluginMenuJS" />
 		<spring:url value="/resources/img/ryuk.png" var="ryukFlying" />
+		<spring:url value="/resources/img/DeathNote_Wallpaper.jpg" var="wallpaperPNG" />
+		<spring:url value="/resources/img/shinigami-eye.png" var="eyePNG" />
 		
 		<!-- METAs files -->
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
@@ -41,16 +43,15 @@
 		<!-- End Background twinkling stars effect -->
 		
 		<div id="main">	
-		<a href="loadEvents" class="titleDeathNote">Death Note Time Line</a>
+		<a href="loadEvents" class="titleDeathNote">Death Note Time Line <small style="color:red">${failConnection}</small></a>
 		
 		<!-- Navigation BAR -->
 		   <span style="position:fixed; right: 10px; top: 10px;font-size:30px;cursor:pointer; color:white; z-index:4;" onclick="openMenuNavigation()">&#9776;</span>
 		    <div id="mySideBarnav" class="sideBarNav">
 		      <span href="javascript:void(0)" class="closebtn" onclick="closeMenuNavigation()">&times;</span>
 		      <a href="javascript:void(0)" onclick="splashRyukFlyingForAdmin()">Admin</a>
-		      <a href="#">Check a date</a>
+		      <a href="episodes">Check all episodes</a>
 		      <a href="#">About us</a>
-		      <a href="#">Report bug</a>
 		    </div>
 		    <!-- END Navigation bar -->
 			
@@ -84,19 +85,58 @@
 						});
 					addToJavaList(node);
 				</script>
+				<div class="modal form-event" id="identifier-${event.id}" nodeModal-identifier="1">
+					<div class="modal-content">
+				<span class="modal-closer" id="CloseIdentifier-${event.id}" nodeModal-identifier="${event.id}">&times;</span> 
 				
-				<!-- The Modal Global-->
-				<div class="modal" id="identifier-${event.id}" nodeModal-identifier="1">
-				  <!-- Modal content -->
-				  <div class="modal-content">
-				    <span class="modal-closer" id="CloseIdentifier-${event.id}" nodeModal-identifier="${event.id}">&times;</span>
-				    <!-- Add content, arbitrary -->
-				    <h1>${event.date}</h1>
-				    <p>${event.description}</p>
-				    <p>Number episode: ${event.episode.number} </p>
-					<iframe width="560" height="315" src="${event.episode.link}" frameborder="0" allowfullscreen></iframe>
-				  </div>
-				</div>
+					<div class="modal-event-title">
+						<input type="text" value="${event.title}" readonly="true"/>
+					</div>
+
+
+					<div class="event-picture taped">
+						<img src="${wallpaperPNG}"/>
+					</div>
+
+					<div class="event-informations">
+						<div class="event-period">
+							<div class="event-date">
+								<input type="date" value="${event.date}" readonly="true"/>
+							</div>
+							<span> at </span>
+							<div class="event-time">
+								<input type="time" />
+							</div>
+						</div>
+						<div class="event-location">
+							<input type="text" value="${event.location}" readonly="true"/> 
+						</div>
+					</div>
+					
+					<div class="event-description">
+						<textarea name="event-description" readonly="true">${event.description}</textarea>
+					</div>
+					
+					<div class="event-episode">
+						<span class="question-episode">Click on Shinigami Eye if you want to see the Memory</span>
+						<div id="shinigami-eye">
+							<img src="${eyePNG}">
+						</div>
+						<div class="episode-picker">
+							<label for="event-episode">Look the episode : E. ${event.episode.number} S. ${event.episode.season}</label>
+							<iframe width="560" height="315" src="${event.episode.link}" frameborder="0" allowfullscreen></iframe>
+						</div>
+					</div>
+					
+			</div>
+		</div>
+		<script type="text/javascript">
+			var button = document.getElementById("shinigami-eye");button.onclick = function(){
+			        this.classList.toggle("opened");
+			        this.nextElementSibling.classList.toggle("show");
+			  }
+		</script>
+				
 			</c:forEach>
 			
 			<!-- PART WHERE THE TIMELINE WILL BE DRAWN. -->
@@ -111,16 +151,18 @@
 			<div id="admin-ryuk-connection">
 				<span onclick="closeRyukConnect()">&times;</span>
 				<img class="mrRyuk"src="${ryukFlying}"></img>
-				<form> <!-- TODO:// Work on sending message to connect. -->
+				<form>
 					<span>Take possession <br> of </br> the Death Note.</span>
 					<label>Username</label>
-					<input type="text" placeholder="User name" required="required"/>
+					<input type="text" placeholder="User name"  required="required"/>
 					<label>Password</label>
 					<input type="text" placeholder="Password" required="required"/>
 					<br>
-					<button action="submit">Connection</button>
+					<a href="adminPanel">Connection</a>
 					<p>Don't have any Death Note to connect? <a href="register">Register here</a></p>
+					
 				</form>
+				
 			</div>
 			<!-- END ADMIN -->
 		</div>
