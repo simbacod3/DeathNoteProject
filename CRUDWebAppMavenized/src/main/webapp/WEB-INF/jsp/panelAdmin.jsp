@@ -43,7 +43,6 @@
 			      </br>
 			      <br>
 			      </br>
-			      <a href="javascript:void(0)" onclick="openWrapper(event);"><img src="${mailPNG}" menu-value="wrap_mail"/></a>
 			      <a href="javascript:void(0)" onclick="openWrapper(event);"><img src="${userPNG}" menu-value="wrap_user"/></a>
 			    </div>
 		<!-- END MENU BAR -->

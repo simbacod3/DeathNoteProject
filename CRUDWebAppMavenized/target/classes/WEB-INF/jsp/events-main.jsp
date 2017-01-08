@@ -51,7 +51,6 @@
 		      <span href="javascript:void(0)" class="closebtn" onclick="closeMenuNavigation()">&times;</span>
 		      <a href="javascript:void(0)" onclick="splashRyukFlyingForAdmin()">Admin</a>
 		      <a href="episodes">Check all episodes</a>
-		      <a href="#">About us</a>
 		    </div>
 		    <!-- END Navigation bar -->
 			
@@ -81,7 +80,8 @@
 					var node = new NodeObject( { "id":${event.id},
 												 "description":"${event.description}",
 												 "date":"${event.date}",
-												 "pointOfView": pOv
+												 "pointOfView": pOv,
+												 "link":"${event.episode.link}"
 						});
 					addToJavaList(node);
 				</script>
@@ -122,20 +122,15 @@
 						<div id="shinigami-eye">
 							<img src="${eyePNG}">
 						</div>
-						<div class="episode-picker">
-							<label for="event-episode">Look the episode : E. ${event.episode.number} S. ${event.episode.season}</label>
+						
+							<label for="event-episode">Look the episode : E. </label>
 							<iframe width="560" height="315" src="${event.episode.link}" frameborder="0" allowfullscreen></iframe>
-						</div>
+						
 					</div>
 					
 			</div>
 		</div>
-		<script type="text/javascript">
-			var button = document.getElementById("shinigami-eye");button.onclick = function(){
-			        this.classList.toggle("opened");
-			        this.nextElementSibling.classList.toggle("show");
-			  }
-		</script>
+
 				
 			</c:forEach>
 			

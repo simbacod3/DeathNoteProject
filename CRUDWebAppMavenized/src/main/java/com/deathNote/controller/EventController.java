@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.deathNote.model.Admin;
+import com.deathNote.model.Episode;
 import com.deathNote.model.Event;
 import com.deathNote.service.EventService;
 
@@ -39,13 +40,10 @@ public class EventController {
 	 * @return
 	 */
 	@RequestMapping("/loadEvents")
-	public ModelAndView loadEvents() {
-		ModelAndView model = new ModelAndView("events-main");
+	public String loadEvents(Map<String, Object> map) {
 		Event even = new Event();
-		model.addObject("admin", new Admin());
-		model.addObject("event", even);
-		model.addObject("eventList", eventService.getAllEvents());
-		model.addObject("failConnection", "");
-		return model;
+		map.put("event", even);
+		map.put("eventList", eventService.getAllEvents());
+		return "events-main";
 	}
 }
