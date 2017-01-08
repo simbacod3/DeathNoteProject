@@ -1,5 +1,7 @@
 package com.deathNote.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -31,6 +33,11 @@ public class EpisodeServiceImpl implements EpisodeService {
 	@Transactional
 	public Episode getEpisodeById(int id) {
 		return episodeDao.getEpisodeById(id);
+	}
+
+	@Transactional
+	public List<Episode> getAllEpisodes() {
+		return episodeDao.getAllEpisodes();
 	}
 
 }

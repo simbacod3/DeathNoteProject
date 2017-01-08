@@ -1,5 +1,7 @@
 package com.deathNote.service;
 
+import java.util.List;
+
 import com.deathNote.model.Episode;
 
 public interface EpisodeService {
@@ -7,4 +9,5 @@ public interface EpisodeService {
 	public void delete(Episode episode);
 	public void edit(Episode episode);
 	public Episode getEpisodeById(int id);
+	public List<Episode> getAllEpisodes();
 }

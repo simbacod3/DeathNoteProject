@@ -12,6 +12,11 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class MainAppController {
 	
+	/**
+	 * 
+	 * @param httpRequest
+	 * @return
+	 */
 	@RequestMapping(value = "errors", method = RequestMethod.GET)
     public ModelAndView renderErrorPage(HttpServletRequest httpRequest) {
          

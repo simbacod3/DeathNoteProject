@@ -19,6 +19,10 @@ public class EventController {
 	@Autowired
 	private EventService eventService;
 	
+	/**
+	 * 
+	 * @return
+	 */
 	@RequestMapping("/event")
 	@ResponseBody
 	public String getEventNumber1() {
@@ -27,6 +31,11 @@ public class EventController {
 		return e.getDescription();
 	}
 	
+	/**
+	 * 
+	 * @param map
+	 * @return
+	 */
 	@RequestMapping("/loadEvents")
 	public String loadEvents(Map<String, Object> map) {
 		Event even = new Event();

@@ -22,6 +22,10 @@ public class AdminController {
 	@Autowired
 	AdminService adminService;
 	
+	/**
+	 * 
+	 * @return
+	 */
 	@RequestMapping("goToAdmin")
 	@ResponseBody
 	public String getAdmin1() {
@@ -30,6 +34,11 @@ public class AdminController {
 		return a.getFirstname() + " "+ a.getLastname(); 
 	}
 	
+	// | ADMIN PART FOR REGISTRATION |
+	/**
+	 * 
+	 * @return
+	 */
 	@RequestMapping("register")
 	public ModelAndView launchRegisterOnCall() {
 		ModelAndView modelView = new ModelAndView("registerAdmin");
@@ -37,7 +46,12 @@ public class AdminController {
 		return modelView;
 	}
 	
-	
+	/**
+	 * 
+	 * @param admin
+	 * @param reqParam
+	 * @return
+	 */
 	@RequestMapping(value="registerAndSend", method=RequestMethod.POST)
 	public ModelAndView registerMember(@ModelAttribute("admin")Admin admin, @RequestParam Map<String, String> reqParam) {
 		List<Admin> list = adminService.getAllAdmin();
@@ -60,4 +74,7 @@ public class AdminController {
 		modelView.addObject("userName", reqParam.get("username"));
 		return modelView;
 	}
+	// END ADMIN PART FOR REGISTRATION
+	
+	// LOGIN PART
 }
