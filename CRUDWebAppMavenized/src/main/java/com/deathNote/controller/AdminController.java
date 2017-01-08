@@ -94,6 +94,7 @@ public class AdminController {
 		Event event = new Event();
 		ModelAndView modelView = new ModelAndView("panelAdmin");
 		modelView.addObject("event", event);
+		modelView.addObject("previousTitle", "");
 		modelView.addObject("episodesList", episodeService_extern.getAllEpisodes());
 		return modelView;
 	}

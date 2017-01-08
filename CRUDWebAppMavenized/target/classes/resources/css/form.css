@@ -8,6 +8,7 @@ QUESTIONS ? ---------------
     * a window that will open in order to contain some informations about a specified subject.
 */
 
+
 /* The Modal (background) */
 .modal {
     display: block;
@@ -313,4 +314,35 @@ input[type=submit]:active {
 	background-color: transparent;
 	color: #ae0023;
 	border: 3px solid #ae0023;
+}
+
+.notifier {
+	position: fixed;
+	bottom:4%;
+	right:-25%;
+	width:300px;
+	height:100px;
+	background:#cbcbcb;
+	z-index:900;
+	border-radius:10px;
+	text-align:center;
+	animation: comeFromRight;
+	padding-top:10px;
+	font-family:"deathnote";
+	animation-duration: 2s;
+	-webkit-box-shadow: -11px 13px 28px 0px rgba(189,189,189,0.3);
+	-moz-box-shadow: -11px 13px 28px 0px rgba(189,189,189,0.3);
+	box-shadow: -11px 13px 28px 0px rgba(189,189,189,0.3);
+}
+
+@keyframes comeFromRight {
+	0% {
+	right:-20%;
+	}
+	50%,90% {
+	right:0; 
+	}
+	100%{
+	right:-20%;
+	}
 }

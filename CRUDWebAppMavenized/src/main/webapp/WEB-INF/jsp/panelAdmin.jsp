@@ -11,11 +11,14 @@
 		<spring:url value="/resources/css/menu-deathnote.css" var="pluginMenuCSS" />
 		<spring:url value="/resources/css/form.css" var="formCSS" />
 		<spring:url value="/resources/js/menu-deathnote.js" var="pluginMenuJS" />
+		<spring:url value="/resources/js/panelAdminController.js" var="controlMenuJS" />
 		<spring:url value="/resources/img/icon/forms.png" var="formsPNG" />
 		<spring:url value="/resources/img/icon/timeline.png" var="timelinePNG" />
 		<spring:url value="/resources/img/icon/user.png" var="userPNG" />
 		<spring:url value="/resources/img/icon/mail.png" var="mailPNG" />
 		<spring:url value="/resources/img/icon/database.png" var="databasePNG" />
+		<spring:url value="/resources/img/DeathNote_Wallpaper.jpg" var="wallpaperPNG" />
+		<spring:url value="/resources/img/shinigami-eye.png" var="eyePNG" />
 		
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 		<title>DeathNote - Panel admin</title>
@@ -26,28 +29,29 @@
 		
 		<!-- JS references with JSP variables -->
 		<script src="${pluginMenuJS}" charset="utf-8"></script>
+		<script src="${controlMenuJS}" charset="utf-8"></script>
 	</head>
-	<body>
+	<body style="background:black;">
 		<!-- MENU BAR -->
 		<span style="position:fixed; left: 10px; top: 10px;font-size:10px;cursor:pointer; color:white; z-index:66;" onclick="closeStickyMenuNavigation(event);">&#9587;</span>
 			    <div id="mySideBarnav" class="sideStickyBarNav">
 			      <span href="javascript:void(0)" class="closebtnSticky" onclick="openStickyMenuNavigation(event);">&#9654;</span>
-			      <a href="javascript:void(0)"><img src="${formsPNG}"/></a>
-			      <a href="../loadEvents"><img src="${timelinePNG}"/></a>
-			      <a href="javascript:void(0)"><img src="${databasePNG}"/></a>
+			      <a href="javascript:void(0)" onclick="openWrapper(event)" menu-value="wrap_forms"><img src="${formsPNG}" menu-value="wrap_forms"/></a>
+			      <a href="loadEvents"><img src="${timelinePNG}"/></a>
+			      <a href="javascript:void(0)" onclick="openWrapper(event)" menu-value="wrap_database"><img src="${databasePNG}" menu-value="wrap_database"/></a>
 			      <br>
 			      </br>
 			      <br>
 			      </br>
-			      <a href="javascript:void(0)"><img src="${mailPNG}"/></a>
-			      <a href="javascript:void(0)"><img src="${userPNG}"/></a>
+			      <a href="javascript:void(0)" onclick="openWrapper(event)" menu-value="wrap_mail"><img src="${mailPNG}" menu-value="wrap_mail"/></a>
+			      <a href="javascript:void(0)" onclick="openWrapper(event)" menu-value="wrap_user"><img src="${userPNG}" menu-value="wrap_user"/></a>
 			    </div>
 		<!-- END MENU BAR -->
 		
 		<!-- WRAP MAIN -->
 		<div id="wrap_main">
 			<div id="wrap_forms">
-				<h1>Element "${previousTitle}" added.</h1>
+				<h1 class="notifier">Element "${previousTitle}" added.</h1>
 				<div class="modal form-event">
 			<div class="modal-content">
 				<span class="modal-closer" id="closeIdentifier" >&times;</span> 
@@ -58,7 +62,7 @@
 
 
 					<div class="event-picture taped">
-						<img src="../../img/DeathNote_Wallpaper.jpg"/>
+						<img src="${wallpaperPNG}"/>
 					</div>
 
 					<div class="event-informations">
@@ -95,7 +99,7 @@
 					<div class="event-episode">
 						<span class="question-episode">Click on Shinigami Eye if you want to add a Memory</span>
 						<div id="shinigami-eye">
-							<img src="../../img/shinigami-eye.png">
+							<img src="${eyePNG}">
 						</div>
 						<div class="episode-picker">
 							<label for="event-episode">Choose the episode :</label>
@@ -122,6 +126,13 @@
 			<div id="wrap_mail"></div>
 			<div id="wrap_admin"></div>
 		</div>
+		<c:if test="${previousTitle !=''}">
+			<div class="notifier">
+				<p>Notification:</p>
+				Element: ${previousTitle} has been added.
+			</div>
+		</c:if>
+		
 		<!-- END WRAP MAIN -->
 	</body>
 </html>
