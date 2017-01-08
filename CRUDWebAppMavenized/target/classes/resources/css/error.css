@@ -13,6 +13,8 @@ body, html {
 
 body {
 	margin-top:-15px;
+	animation: opacNmove;
+	animation-duration:2s;
 }
 
 @font-face {
@@ -30,6 +32,12 @@ body {
 #main_error > h1 {
 	font-size:300px;
     margin-left: 50px;
+    animation: opacNmove;
+	animation-duration:.7s;
+}
+
+#main_error > h1:hover {    
+
 }
 
 #main_error > p {
@@ -38,6 +46,14 @@ body {
     margin-left: 20px;
 }
 
+@keyframes opacNmove {
+	0% {
+	opacity:0;
+	}
+	100% {
+	opacity:1;
+	}
+}
 #main_error > a {
 	font-size:40px;  
 	margin-left: 500px; 
