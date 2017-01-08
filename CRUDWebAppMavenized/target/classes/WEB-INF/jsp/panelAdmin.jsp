@@ -11,7 +11,7 @@
 		<spring:url value="/resources/css/menu-deathnote.css" var="pluginMenuCSS" />
 		<spring:url value="/resources/css/form.css" var="formCSS" />
 		<spring:url value="/resources/js/menu-deathnote.js" var="pluginMenuJS" />
-		<spring:url value="/resources/js/panelAdminController.js" var="controlMenuJS" />
+		<spring:url value="/resources/js/panelAdminController.js" var="ContJS" />
 		<spring:url value="/resources/img/icon/forms.png" var="formsPNG" />
 		<spring:url value="/resources/img/icon/timeline.png" var="timelinePNG" />
 		<spring:url value="/resources/img/icon/user.png" var="userPNG" />
@@ -29,29 +29,29 @@
 		
 		<!-- JS references with JSP variables -->
 		<script src="${pluginMenuJS}" charset="utf-8"></script>
-		<script src="${controlMenuJS}" charset="utf-8"></script>
+		<script src="${ContJS}" charset="utf-8"></script>
 	</head>
 	<body style="background:black;">
 		<!-- MENU BAR -->
 		<span style="position:fixed; left: 10px; top: 10px;font-size:10px;cursor:pointer; color:white; z-index:66;" onclick="closeStickyMenuNavigation(event);">&#9587;</span>
 			    <div id="mySideBarnav" class="sideStickyBarNav">
 			      <span href="javascript:void(0)" class="closebtnSticky" onclick="openStickyMenuNavigation(event);">&#9654;</span>
-			      <a href="javascript:void(0)" onclick="openWrapper(event)" menu-value="wrap_forms"><img src="${formsPNG}" menu-value="wrap_forms"/></a>
-			      <a href="loadEvents"><img src="${timelinePNG}"/></a>
-			      <a href="javascript:void(0)" onclick="openWrapper(event)" menu-value="wrap_database"><img src="${databasePNG}" menu-value="wrap_database"/></a>
+			      <a href="javascript:void(0)" onclick="openWrapper(event);"><img src="${formsPNG}" menu-value="wrap_forms"/></a>
+			      <a href="../loadEvents"><img src="${timelinePNG}"/></a>
+			      <a href="javascript:void(0)" onclick="openWrapper(event);"><img src="${databasePNG}" menu-value="wrap_database"/></a>
 			      <br>
 			      </br>
 			      <br>
 			      </br>
-			      <a href="javascript:void(0)" onclick="openWrapper(event)" menu-value="wrap_mail"><img src="${mailPNG}" menu-value="wrap_mail"/></a>
-			      <a href="javascript:void(0)" onclick="openWrapper(event)" menu-value="wrap_user"><img src="${userPNG}" menu-value="wrap_user"/></a>
+			      <a href="javascript:void(0)" onclick="openWrapper(event);"><img src="${mailPNG}" menu-value="wrap_mail"/></a>
+			      <a href="javascript:void(0)" onclick="openWrapper(event);"><img src="${userPNG}" menu-value="wrap_user"/></a>
 			    </div>
 		<!-- END MENU BAR -->
 		
 		<!-- WRAP MAIN -->
 		<div id="wrap_main">
 			<div id="wrap_forms">
-				<h1 class="notifier">Element "${previousTitle}" added.</h1>
+				<h1 style="text-align:center; z-index:4">Element "${previousTitle}" added.</h1>
 				<div class="modal form-event">
 			<div class="modal-content">
 				<span class="modal-closer" id="closeIdentifier" >&times;</span> 
@@ -122,17 +122,48 @@
 			  }
 		</script>
 			</div>
-			<div id="wrap_database"></div>
+			<div id="wrap_database">
+			<div class="datagrid">
+					<table>
+						<thead><tr><th>id</th><th>title</th><th>date</th><th>description</th></tr></thead>
+							<tbody>
+								
+							<c:forEach items="${events_databaseToBeDisplayed}" var="event">
+								<tr>
+								<td>${event.id}</td>
+								<td>${event.title}</td>
+								<td>${event.date}</td>
+								<td>${event.description}</td>
+							   </tr>
+							</c:forEach>
+				</tbody>
+				</table>
+				</div>
+				<div class="datagrid">
+					<table>
+						<thead><tr><th>id</th><th>number</th><th>season</th><th>synopsis</th></tr></thead>
+							<tbody>
+								
+							<c:forEach items="${episodesList}" var="ep">
+								<tr>
+								<td>${ep.id}</td>
+								<td>${ep.number}</td>
+								<td>${ep.season}</td>
+								<td>${ep.synopsis}</td>
+							   </tr>
+							</c:forEach>
+				</tbody>
+				</table>
+				</div>
+			</div>
 			<div id="wrap_mail"></div>
 			<div id="wrap_admin"></div>
 		</div>
-		<c:if test="${previousTitle !=''}">
+		<!-- END WRAP MAIN -->
+		<c:if test="${not empty previousTitle }">
 			<div class="notifier">
-				<p>Notification:</p>
-				Element: ${previousTitle} has been added.
+			<p>Element: ${previousTitle} added</p>
 			</div>
 		</c:if>
-		
-		<!-- END WRAP MAIN -->
 	</body>
 </html>

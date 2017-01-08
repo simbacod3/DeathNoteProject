@@ -96,6 +96,7 @@ public class AdminController {
 		modelView.addObject("event", event);
 		modelView.addObject("previousTitle", "");
 		modelView.addObject("episodesList", episodeService_extern.getAllEpisodes());
+		modelView.addObject("events_databaseToBeDisplayed", eventService_extern.getAllEvents() );
 		return modelView;
 	}
 	
@@ -145,6 +146,7 @@ public class AdminController {
 		modelView.addObject("previousTitle", reqParam.get("title"));
 		modelView.addObject("event", new Event());
 		modelView.addObject("episodesList", episodeService_extern.getAllEpisodes());
+		modelView.addObject("events_databaseToBeDisplayed", eventService_extern.getAllEvents() );
 		return modelView;
 	}
 	
