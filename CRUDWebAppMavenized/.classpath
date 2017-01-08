@@ -38,5 +38,8 @@
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/Maxime/JAVA/joda-time-2.4/joda-time-2.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Maxime/JAVA/joda-time-2.4/joda-time-2.4-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Maxime/JAVA/joda-time-2.4/joda-time-2.4-sources.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

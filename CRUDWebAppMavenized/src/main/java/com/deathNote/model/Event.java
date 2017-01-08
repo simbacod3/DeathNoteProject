@@ -1,7 +1,8 @@
 package com.deathNote.model;
 
+import java.sql.Date;
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.Calendar;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -15,6 +16,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class Event {
@@ -22,6 +27,8 @@ public class Event {
 	@Column
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
+	@Column
+	private String title;
 	@Column
 	private String description;
 	@Column
@@ -47,10 +54,11 @@ public class Event {
 	}
 
 
-	public Event(int id, String description, Date date, boolean murder, String location, Boolean pointOfView,
-			int idkiller, Picture picture, Episode episode, List<Person> persons) {
+	public Event(int id, String title, String description, Date date, boolean murder, String location,
+			Boolean pointOfView, int idkiller, Picture picture, Episode episode, List<Person> persons) {
 		super();
 		this.id = id;
+		this.title = title;
 		this.description = description;
 		this.date = date;
 		this.murder = murder;
@@ -61,6 +69,16 @@ public class Event {
 		this.episode = episode;
 		this.persons = persons;
 	}
+
+	public String getTitle() {
+		return title;
+	}
+
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
 
 	public List<Person> getPersons() {
 		return persons;

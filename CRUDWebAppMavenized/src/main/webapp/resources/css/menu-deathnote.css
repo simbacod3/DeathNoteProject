@@ -53,3 +53,62 @@ QUESTIONS ? ---------------
     font-size: 36px;
     margin-left: 50px;
 }
+
+/*
+ LEFT STICKY BAR
+*/
+.sideStickyBarNav {
+    height: 100%;
+    width: 75px;
+    position: fixed;
+    z-index: 50;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sideStickyBarNav a {
+    padding: 8px 8px 8px 10px;
+    text-decoration: none;
+    font-size: 35px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+    font-family:'deathnote';
+    word-wrap:no-wrap;
+}
+
+.sideStickyBarNav a > img {
+    width:35px;
+    height:35px;
+    border-right:1px solid transparent;
+	padding-right:27px;    
+}
+
+.sideStickyBarNav a > img:hover {
+    border-right:3px solid white;
+    transition: .2s;
+}
+
+.sideStickyBarNav > span {
+    color:#c0c0c0;
+    cursor:pointer;
+}
+
+.sideStickyBarNav a:hover, .offcanvas a:focus, .sideStickyBarNav>span:hover{
+    color: #f1f1f1;
+}
+
+.sideStickyBarNav .closebtnSticky {
+    position: absolute;
+    top: 6px;
+    right: 10px;
+    font-size: 15px;
+    margin-left: 50px;
+}
+/*
+ END LEFT STICKY BAR
+*/

@@ -1,0 +1,30 @@
+/* FONTS */
+
+@font-face {
+	font-family: 'deathnote-cover';
+	src: url('../fonts/DeathNote-Cover.ttf');
+}
+@font-face {
+	font-family: 'ryuk';
+	src: url('../fonts/DeathNote-Ryuk.ttf');
+}
+@font-face {
+	font-family: 'deathnote-title';
+	src: url('../fonts/DeathNote-Main.ttf');
+}
+@font-face {
+	font-family: 'handwriting';
+	src: url('../fonts/DeathNote-Handwriting.ttf');
+}
+@font-face {
+	font-family: 'god-of-death';
+	src: url('../fonts/DeathNote-GodOfDeath.ttf');
+}
+@font-face {
+	font-family: 'l-police';
+	src: url('../fonts/DeathNote-L.ttf');
+}
+@font-face {
+	font-family: 'near-font';
+	src: url('../fonts/DeathNote-Near.ttf');
+}

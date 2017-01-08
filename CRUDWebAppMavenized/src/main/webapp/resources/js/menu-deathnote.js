@@ -36,6 +36,8 @@ function openMenuNavigation() {
     document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
 }
 
+
+
 /**
 *
 *
@@ -58,4 +60,21 @@ function closeRyukConnect() {
 	var ryukOpenModal = document.getElementById('admin-ryuk-connection');
 	ryukOpenModal.style.display='none';
 	
+}
+
+
+
+/*
+ * 
+ */
+function openStickyMenuNavigation(event) {
+    document.getElementById("mySideBarnav").style.width = "250px";
+}
+
+/**
+ * 
+ * @returns
+ */
+function closeStickyMenuNavigation(event) {
+    document.getElementById("mySideBarnav").style.width = "75px";
 }
