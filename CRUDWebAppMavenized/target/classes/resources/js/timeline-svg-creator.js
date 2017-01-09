@@ -111,7 +111,7 @@ function SVGDrawerObject(line) {
 	      		nodePosition = (startAt + line.DefaultX());
 	      	}
 	      	else {
-	      		console.log("WHERE START FROM ?")
+	      		console.log("Error")
 	      	}
 	      }
 	    }
@@ -228,20 +228,26 @@ function SVGDrawerObject(line) {
 
 	SVGDrawerObject.prototype.createBranchFor = function (newNode, line, svgNS){
 		var last = this.master.getLastItem();
+		var lastItem = newNode.previous;
 
 		// SVG Element
 		var element = document.createElementNS(svgNS, "g");
 		var elementNS = element.namespaceURI;
-
+		
+		
 		// Positions
 		var linkMaster = last.borderRight + (widthIntersection/5);
 		var startNewBranch = (last.borderRight + widthIntersection);
 		var linkNextNode = startNewBranch + (widthIntersection/5);
-
+	
+		// Draw extension
+		if (lastItem.borderRight > linkNextNode){
+			linkNextNode = lastItem.borderRight;
+		}
 		// Config Node to insert on a new branch
 		newNode.onNewBranch = true;
 		newNode.borderLeft = linkNextNode;
-
+		
 		// New Branch
 		var branch = document.createElementNS(elementNS,"path");
 		branch.setAttribute("class","new-branch-"+line.label+"line");
@@ -385,13 +391,10 @@ function SVGDrawerObject(line) {
 		if (svgDrawer != null && svgDrawer instanceof SVGDrawerObject)
 		{
 			for (var eventItem of eventItems){
-				console.log(eventItem);
 				if (eventItem.event.pointOfView == null){
 					if (eventItem.previous == null  || lastRedNode == lastBlueNode){
 						var nodeSVG = svgDrawer.drawNodeOn(eventItem,timeLine,svgNS);
-						console.log("timeline has "+ timeLine.items.length +"child");
 						timeLine.addNode(eventItem);
-						console.log("timeline has "+ timeLine.items.length +"child")
 						svg.appendChild(nodeSVG);
 					}
 					else {
@@ -413,13 +416,11 @@ function SVGDrawerObject(line) {
 						var redBranchSVG = svgDrawer.createBranchFor(eventItem, redLine, svgNS);
 						nodeSVG = svgDrawer.drawNodeOn(eventItem, redLine, svgNS);
 						redLine.addNode(eventItem);
-						console.log("redLine has "+ redLine.items.length +"child")
 						svg.appendChild(redBranchSVG);
 					}
 					else {
 						nodeSVG = svgDrawer.drawNodeOn(eventItem, redLine, svgNS);
 						redLine.addNode(eventItem);
-						console.log("redLine has "+ redLine.items.length +"child")
 					}
 					svg.appendChild(nodeSVG);
 					lastRedNode = eventItem;
@@ -430,7 +431,6 @@ function SVGDrawerObject(line) {
 						var blueBranchSVG = svgDrawer.createBranchFor(eventItem, blueLine, svgNS);
 						nodeSVG = svgDrawer.drawNodeOn(eventItem, blueLine, svgNS);
 						blueLine.addNode(eventItem);
-						console.log("blueLine has "+ blueLine.items.length +"child")
 						svg.appendChild(blueBranchSVG);
 					}
 					else if (blueLine.getLastItem() == null || blueLine.getLastItem().positionX < timeLine.getLastItem().positionX){
@@ -439,7 +439,6 @@ function SVGDrawerObject(line) {
 					else {
 						nodeSVG = svgDrawer.drawNodeOn(eventItem, blueLine, svgNS);
 						blueLine.addNode(eventItem);
-						console.log("blueLine has "+ blueLine.items.length +"child")
 					}
 					svg.appendChild(nodeSVG);
 					lastBlueNode = eventItem;

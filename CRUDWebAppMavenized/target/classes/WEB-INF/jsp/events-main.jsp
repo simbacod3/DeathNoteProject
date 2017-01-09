@@ -100,13 +100,7 @@
 
 					<div class="event-informations">
 						<div class="event-period">
-							<div class="event-date">
-								<input type="date" value="${event.date}" readonly="true"/>
-							</div>
-							<span> at </span>
-							<div class="event-time">
-								<input type="time" />
-							</div>
+							<input type="date" value="${event.date}" readonly="true"/>
 						</div>
 						<div class="event-location">
 							<input type="text" value="${event.location}" readonly="true"/> 
@@ -119,13 +113,12 @@
 					
 					<div class="event-episode">
 						<span class="question-episode">Click on Shinigami Eye if you want to see the Memory</span>
-						<div id="shinigami-eye">
+						<div class="shinigami-eye">
 							<img src="${eyePNG}">
 						</div>
-						
-							<label for="event-episode">Look the episode : E. </label>
-							<iframe width="560" height="315" src="${event.episode.link}" frameborder="0" allowfullscreen></iframe>
-						
+						<div class="episode-viewer">
+							<iframe id="player-${event.id}" src="${event.episode.link}?showinfo=0&enablejsapi=1" allowfullscreen></iframe>
+						</div>
 					</div>
 					
 			</div>
@@ -140,6 +133,17 @@
 				<script type="text/javascript">
 					drawTimeline();
 					
+				</script>
+				<script type="text/javascript">
+					var acc = document.getElementsByClassName("shinigami-eye");
+					var i;
+
+					for (i = 0; i < acc.length; i++) {
+					    acc[i].onclick = function(){
+					        this.classList.toggle("opened");
+					        this.nextElementSibling.classList.toggle("show");
+					  }
+					}
 				</script>
 			
 			<!-- Admin connection part -->

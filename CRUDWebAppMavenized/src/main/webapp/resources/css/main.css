@@ -1,3 +1,4 @@
+@import url("fonts.css");
 body,html {
 	background-color: black;
 }
@@ -244,7 +245,7 @@ QUESTIONS ? ---------------
 
 /* CLOSE BUTTON */
 .modal-closer {
-    color: rgba(139, 11, 27, 0.6);
+    color: rgba(139, 11, 27, 0.6)!important;
     float: right;
     font-size: 32px;
     font-weight: bold;
@@ -252,7 +253,7 @@ QUESTIONS ? ---------------
 
 .modal-closer:hover,
 .modal-closer:focus {
-    color: rgba(160, 11, 27, 1);
+    color: rgba(160, 11, 27, 1)!important;
     text-decoration: none;
     cursor: pointer;
 }
@@ -358,25 +359,20 @@ div.event-informations span, div.event-informations input {
 	display: inline-block;
 }
 /* DATETIME */
-div.event-informations span {
-	margin : 0 10px;
-}
 div.event-informations input {
 	background:none;
 	border:none;
 }
+div.event-informations > * {
+	display:inline-block;
+	max-width:250px;
+}
 div.event-informations div.event-period input {
-	max-width: 200px;
 	padding: 10px 15px;
 }
 /* LOCALISATION OF EVENT */
-div.event-informations .event-location{
-	width: 90%;
-
-}
 div.event-informations .event-location input {
 	font-size: 28px;
-	width: 100%;
 	text-align: right;
 	padding: 5px 15px;
 	font-style: italic;
@@ -391,7 +387,7 @@ div.event-description textarea {
 	background:none;
     margin-top: 12px;
     padding: 5px 15px;
-    height: 200px;
+    min-height: 200px;
 }
 
 /* POINT OF VIEW */
@@ -457,10 +453,10 @@ span.question-episode {
 	font-size:24px;
 	color:#ffffff;
 }
-div#shinigami-eye img {
+div.shinigami-eye img {
 	cursor: pointer;
 }
-div.episode-picker {
+div.episode-viewer {
     padding: 20px 18px;
     max-height: 0;
     overflow: hidden;
@@ -469,15 +465,14 @@ div.episode-picker {
     opacity: 0;
     margin-bottom: 20px;
 }
-div.episode-picker.show {
+div.episode-viewer.show {
     opacity: 1;
-    max-height: 500px;
+    max-height: 600px;
 }
-div.episode-picker label {
-	font-family: 'ryuk';
-	font-size:28px;
-	color:#ffffff;
-	text-align: center;
+div.episode-viewer iframe {
+	width:100%;
+	height:360px;
+	border:none;
 }
 select.select-episode {
 	margin-top: 15px;

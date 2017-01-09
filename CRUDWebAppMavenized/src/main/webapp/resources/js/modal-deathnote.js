@@ -46,7 +46,8 @@ function openModalDialog(event) {
     var tar = event.target,
         targetElId = targetElement.getAttribute("nodeModal-identifier"),
         modalToClose = document.getElementById('identifier-' + targetElId);
-
+	    var ytPlayer = document.getElementById('player-'+ targetElId);
+	    ytPlayer.stopVideo();
         closeModalDialog(modalToClose);
   };
 

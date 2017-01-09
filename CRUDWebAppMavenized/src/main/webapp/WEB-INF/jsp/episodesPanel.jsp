@@ -14,7 +14,7 @@
 <link rel="stylesheet" type="text/css" href="${epCSS}"/>
 </head>
 <body>
-<a href="loadEvents" style="text-align:center;"><h1>DEATH NOTE</h1></a>
+<a href="loadEvents" style="font-family:'ryuk'; color:white; text-decoration:none; text-align:center;"><h1>DEATH NOTE</h1></a>
 <div id="episodes-deathnote">
 	<c:forEach items="${episodeList}" var="episode">
 			<article class="embed-episode"> 
@@ -28,5 +28,17 @@
 			</article>
 	</c:forEach>
 </div>
+<script type="text/javascript">
+			var acc = document.getElementsByClassName("info-accordion");
+			var i;
+
+			for (i = 0; i < acc.length; i++) {
+			    acc[i].onclick = function(){
+			        this.classList.toggle("active");
+			        this.nextElementSibling.classList.toggle("show");
+			        this.parentNode.classList.toggle("episode-with-info");
+			  }
+			}
+		</script>
 </body>
 </html>
