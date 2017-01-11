@@ -43,7 +43,7 @@
 			      </br>
 			      <br>
 			      </br>
-			      <a href="javascript:void(0)" onclick="openWrapper(event);"><img src="${userPNG}" menu-value="wrap_user"/></a>
+			      <a href="javascript:void(0)" onclick="openWrapper(event);"><img src="${userPNG}" menu-value="wrap_admin"/></a>
 			    </div>
 		<!-- END MENU BAR -->
 		
@@ -68,10 +68,6 @@
 						<div class="event-period">
 							<div class="event-date">
 								<form:input type="date" path="date" required="required"/>
-							</div>
-							<span> at </span>
-							<div class="event-time">
-								<input type="time" />
 							</div>
 						</div>
 						<div class="event-location">
@@ -160,7 +156,23 @@
 				</div>
 			</div>
 			<div id="wrap_mail"></div>
-			<div id="wrap_admin"></div>
+			<div id="wrap_admin">
+				
+					<div id="bookOpenRight">
+					<div style="border:1px solid black; border-radius:100%;width:100px;height:100px;margin-top:10px;"></div>
+						<h2>Username</h2>
+						<hr>
+						<h2>First name</h2>
+						<hr>
+						<h2>Last name</h2>
+						<hr>
+						<h2>Age</h2>
+						<hr>
+						</div>
+					<div id="bookOpenLeft"><p>DeathNote</p><small>This Death Note belongs to...</small></div>
+					
+				</div>
+			</div>
 		</div>
 		<!-- END WRAP MAIN -->
 		<c:if test="${not empty previousTitle }">

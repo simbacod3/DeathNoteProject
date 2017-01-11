@@ -1,3 +1,5 @@
+@import url('fonts.css');
+
 /*
  CSS file for the register platform view.
 */
@@ -14,6 +16,8 @@ form {
 	position: absolute;
 	top: 17%;
 	right:15%;
+	font-family: 'l-police';
+    font-size: 20px;
 }
 
 input {

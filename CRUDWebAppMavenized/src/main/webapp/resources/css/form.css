@@ -324,12 +324,13 @@ input[type=submit]:active {
 	height:100px;
 	background:#cbcbcb;
 	z-index:900;
+	font-size:20px;
 	border-radius:10px;
 	text-align:center;
 	animation: comeFromRight;
 	padding-top:10px;
-	font-family:"deathnote";
-	animation-duration: 2s;
+	font-family:"handwriting";
+	animation-duration: 3s;
 	-webkit-box-shadow: -11px 13px 28px 0px rgba(189,189,189,0.3);
 	-moz-box-shadow: -11px 13px 28px 0px rgba(189,189,189,0.3);
 	box-shadow: -11px 13px 28px 0px rgba(189,189,189,0.3);
@@ -338,9 +339,11 @@ input[type=submit]:active {
 @keyframes comeFromRight {
 	0% {
 	right:-20%;
+	opacity:0;
 	}
 	50%,90% {
-	right:0; 
+	right:8%; 
+	opacity:.8;
 	}
 	100%{
 	right:-20%;
@@ -353,9 +356,10 @@ input[type=submit]:active {
 	display:none;
     position: absolute;
     top: 8%;
-    left: 25%;
     animation:opacityEffect;
     animation-duration:1s;
+    left: 15%;
+    max-width: 1000px;
 }
 
 #wrap_mail {
@@ -367,18 +371,69 @@ input[type=submit]:active {
     animation-duration:1s;
 }
 
-#wrap_user {
+#wrap_admin {
 	display:none;
     position: absolute;
-    top: 8%;
-    left: 25%;
+    top: 0%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:rgba(200,40,0, 0.5);
     animation:opacityEffect;
     animation-duration:1s;
 }
 
+#bookOpenRight {
+	position:absolute;
+	width: 350px;
+	height:500px;
+	top:10%;
+	padding-left:20px;
+	left:50%;
+	border:3px solid black;
+	background:#e8e399;
+	z-index:7;
+	font-family:'l-police';
+}
+
+#bookOpenLeft {
+	position:absolute;
+	text-align:center;
+	font-family:'deathnote-cover';
+	font-size:45px;
+	width: 350px;
+	border:3px solid black;
+	height:500px;
+	top: 10%;
+   	left: 25%;
+	background:grey;
+	z-index:8;
+	animation: openBook;
+	animation-duration:4s;
+}
 #wrap_forms {
 	animation:opacityEffect;
     animation-duration:1s;
+}
+
+@keyframes openBook {
+	0% {
+		top:10%;
+		left:50%;
+		background:black;
+		border:3px solid white;
+	}
+	30%,40%,{
+		border:3px solid white;
+	}
+	50% {
+		transform:rotateY(90deg);
+		left:37%;
+		background:black;
+	}
+	100% {
+		transform:rotateY(0deg);
+	}
 }
 
 @keyframes opacityEffect {
